@@ -9,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { MyApp } from './app.component';
+import { ShoppingListService } from './../services/shopping-list/shopping-list';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ShoppingListService
   ]
 })
 export class AppModule {}
