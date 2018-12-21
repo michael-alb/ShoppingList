@@ -17,4 +17,8 @@ export class ShoppingListService {
   addItem(item: Item){
     return this.shoppingListRef.push(item);
   }
+
+  saveItem(item: Item){
+    return this.shoppingListRef.update(item.key, item)
+  }
 }
