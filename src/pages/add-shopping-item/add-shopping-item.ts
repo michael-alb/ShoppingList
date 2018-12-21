@@ -1,3 +1,4 @@
+import { ToastService } from './../../services/toast/toast.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -26,7 +27,8 @@ export class AddShoppingItemPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private shoppingListService: ShoppingListService) {
+              private shoppingListService: ShoppingListService,
+              private toastService: ToastService) {
   }
 
   ionViewDidLoad() {
@@ -36,6 +38,7 @@ export class AddShoppingItemPage {
   addItem(item: Item){
     this.shoppingListService.addItem(item)
     .then(ref => {
+      this.toastService.show(`${item.name} added!`)
       this.navCtrl.setRoot('HomePage', {ref: ref.key})
     })
   }
